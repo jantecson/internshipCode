@@ -1,0 +1,356 @@
+<CreateAccountWindow>:
+
+    name: "create"
+
+    namee: namee
+    email: email
+    password: passw
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Create an Account"
+                color: (0,0,0,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Name: "
+                color: (0,0,0,1)
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.45, "top":0.78}
+                size_hint: 0.5, 0.08
+                id: namee
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+                background_normal: 'white.png'
+                background_active: 'white.png'
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13}
+                text: "Email: "
+                color: (0,0,0,1)
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.45, "top":0.65}
+                size_hint: 0.5, 0.08
+                id: email
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+                background_normal: 'white.png'
+                background_active: 'white.png'
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13*2}
+                color: (0,0,0,1)
+                text: "Password: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.45, "top":0.52}
+                size_hint: 0.5, 0.08
+                id: passw
+                multiline: False
+                password: True
+                font_size: (root.width**2 + root.height**2) / 14**4
+                background_normal: 'white.png'
+                background_active: 'white.png'
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            background_color: (166/255, 200/255, 255/255, 1)
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Already have an Account? \n                  Log In"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            background_color: (166/255, 200/255, 255/255, 1)
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+
+<LoginWindow>:
+    name: "login"
+
+    email: email
+    password: password
+
+    FloatLayout:
+
+        Label:
+            text:"Sign In "
+            color: (0,0,0,1)
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.06, "top":0.8}
+            size_hint: 0.35, 0.15
+
+        Label:
+            text:"Email "
+            color: (0,0,0,1)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.045, "top":0.72}
+            size_hint: 0.25, 0.15
+
+        TextInput:
+            id: email
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            pos_hint: {"x": 0.1 , "top":0.62}
+            size_hint: 0.8, 0.08
+            background_normal: 'white.png'
+            background_active: 'white.png'
+
+        Label:
+            text:"Password "
+            color: (0,0,0,1)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.045, "top":0.57}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: password
+            font_size: (root.width**2 + root.height**2) / 14**4
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.1, "top":0.47}
+            size_hint: 0.8, 0.08
+            background_normal: 'white.png'
+            background_active: 'white.png'
+
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.2}
+            size_hint: 0.38, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            text: "Sign In"
+            background_color: (166/255, 200/255, 255/255, 1)
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+        Label:
+            text:"Don't have an Account? "
+            color: (0,0,0,1)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":0.25}
+            size_hint: 0.35, 0.15
+
+        Button:
+            pos_hint:{"x":0.335,"y":0.1}
+            size_hint: 0.3, 0.05
+            font_size: (root.width**2 + root.height**2) / 17**4
+            color: (0,0,0,1)
+            text: "Sign Up"
+            background_color: 0, 0, 0, 0
+            ##background_color:(166/255, 200/255, 255/255, 1)
+
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+
+
+<MainWindow>:
+    n: n
+    label_wid: my_custom_label
+
+    FloatLayout:
+        Label:
+            id: n
+            pos_hint:{"x": -0.2, "top":1.05}
+            size_hint:0.8, 0.2
+            color: (0,0,0,1)
+            text: "Hello, "
+            background_normal: 'white.png'
+            background_active: 'white.png'
+
+        Button:
+            pos_hint:{"x":0.8, "y": 0.93}
+            size_hint: 0.15, 0.05
+            text: "Account"
+            on_release:
+                app.root.current = "account"
+                root.manager.transition.direction = "down"
+
+        Button:
+            pos_hint:{"x":0.65, "y": 0.93}
+            size_hint: 0.15, 0.05
+            text: "Edit"
+            on_release:
+                app.root.current = "tasks"
+                root.manager.transition.direction = "left"
+
+        Label:
+            pos_hint:{"x": -0.15, "top":0.95}
+            size_hint:0.85, 0.2
+            color: (0,0,0,1)
+            text: "Your tasks for today are: "
+
+
+
+        Button:
+            id: lbl
+            pos_hint:{"x":0.01, "y": 0.65}
+            size_hint: 0.97, 0.18
+            text: "task 1"
+            on_press: print("task 1 button completed")
+
+
+        Label:
+            id: my_custom_label
+            pos_hint:{"x": -0.18, "top":0.65}
+            size_hint:0.85, 0.2
+            color: (0,0,0,1)
+            text: "Task 2 Name---------------- time \n task description"
+
+        Button:
+            pos_hint:{"x":0.65, "y": 0.45}
+            size_hint: 0.27, 0.15
+            text: "completion button"
+            on_press: root.do_action()
+
+
+        Button:
+            pos_hint:{"x":0.01, "y": 0.25}
+            size_hint: 0.97, 0.18
+            text: "task 3 "
+        Button:
+            pos_hint:{"x":0.01, "y": 0.05}
+            size_hint: 0.97, 0.18
+            text: "task 4 "
+
+<TaskWindow>:
+    t: t
+    tasknamee: tasknamee
+    description: description
+    time: time
+
+    FloatLayout:
+        Label:
+            id: t
+            pos_hint:{"x": -0.1, "top":1.05}
+            size_hint:0.8, 0.2
+            color: (0,0,0,1)
+            text: "Edit Task Assignments: "
+
+        Button:
+            pos_hint:{"x":0.8, "y": 0.93}
+            size_hint: 0.15, 0.05
+            text: "Return"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+        Label:
+            text:"Task Name: "
+            color: (0,0,0,1)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.045, "top":0.92}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: False
+            id: tasknamee
+            pos_hint: {"x": 0.045, "top":0.82}
+            size_hint: 0.61, 0.08
+            background_normal: 'white.png'
+            background_active: 'white.png'
+
+        Label:
+            text:"Task Time: "
+            color: (0,0,0,1)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.035, "top":0.77}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: False
+            id: time
+            pos_hint: {"x": 0.045, "top":0.67}
+            size_hint: 0.3, 0.08
+            background_normal: 'white.png'
+            background_active: 'white.png'
+
+        Label:
+            text:"Task Description: "
+            color: (0,0,0,1)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.1, "top":0.62}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            id: description
+            pos_hint: {"x": 0.045, "top":0.52}
+            size_hint: 0.83, 0.2
+            background_normal: 'white.png'
+            background_active: 'white.png'
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Save"
+            background_color: (166/255, 200/255, 255/255, 1)
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "right"
+                root.submit()
+
+<AccountWindow>:
+    name: "account"
+
+    h: h
+
+    FloatLayout:
+        Label:
+            id: h
+            pos_hint:{"x": -0.1, "top":1.05}
+            size_hint:0.8, 0.2
+            color: (0,0,0,1)
+            text: "Account Detailsssss: "
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.2}
+            size_hint: 0.38, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            text: "Log Out"
+            background_color: (166/255, 200/255, 255/255, 1)
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
+
+<SmoothButton@Button>:
+#not working L
+    background_color: (0,0,0,0)
+    background_normal: ''
+    back_color: (1,0,1,1)
+    border_radius: [18]
+    canvas.before:
+        Color:
+            rgba: self.back_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: self.border_radius
